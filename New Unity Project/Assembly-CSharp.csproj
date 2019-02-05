@@ -73,18 +73,19 @@
     <Compile Include="Assets\Scripts\Model\FlashLight.cs" />
     <Compile Include="Assets\Scripts\Model\PickableObject.cs" />
     <Compile Include="Assets\Scripts\Model\UnitMotor.cs" />
+    <Compile Include="Assets\Scripts\Model\Weapons.cs" />
     <Compile Include="Assets\Scripts\View\FlashLightUIText.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/GeekBrains/Unity 2/HWs/New Unity Project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/GeekBrains/Unity 2/unity/New Unity Project/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/GeekBrains/Unity 2/HWs/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/GeekBrains/Unity 2/unity/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/GeekBrains/Unity 2/HWs/New Unity Project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/GeekBrains/Unity 2/unity/New Unity Project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/GeekBrains/Unity 2/HWs/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/GeekBrains/Unity 2/unity/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.19f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
