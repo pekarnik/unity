@@ -11,10 +11,12 @@ namespace Game
 			if (!IsActive) return;
 			if(Input.GetKeyDown(_codeFlashLight))
 				Main.Instance.FlashLightController.Switch();
-			if(Input.GetKeyDown(_use)&& Main.Instance.BatteryController.Battery.IsSelected)
-			{
-				Main.Instance.BatteryController.Picked();
-			}
+            if (Input.GetKeyDown(_use))
+            {
+                if(Main.Instance.BatteryController.Battery.LookAt())
+                Main.Instance.BatteryController.Taked();
+            }
+
 		}
 	}
 }

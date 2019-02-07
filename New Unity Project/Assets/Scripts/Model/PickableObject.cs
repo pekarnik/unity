@@ -4,28 +4,41 @@ namespace Game
 {
 	public abstract class PickableObject:BaseObjectScene
 	{
-		public GameObject IsSelected { get; private set; }
-		public PickableObject()
-		{
-			IsSelected = null;
-		}
-		private void OnTriggerEnter(Collider other)
-		{
-			if (other.gameObject.tag == "Player")
-			{
-				gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = Color.green;
-				IsSelected = gameObject;
-			}
-		}
-		protected void OnTriggerExit(Collider other)
-		{
-			gameObject.GetComponent<MeshRenderer>().sharedMaterial.color = Color.red;
-			IsSelected = null;
-		}
-		public virtual void Picked()
-		{
-			Destroy(IsSelected);
-		}
+        private float distanceToPick = 1.5f;
+		public virtual void TakeObject()
+        {
+            Destroy(gameObject);            
+        }        
+        public void ColorChangeLookAt()
+        {
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            if(meshRenderer)
+            {
+                meshRenderer.material.color = Color.green;
+            }
+        }
+        public void ColorChangeDontLookAt()
+        {
+            MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+            if (meshRenderer)
+            {
+                meshRenderer.material.color = Color.red;
+            }
+        }
+        public bool LookAt()
+        {
+            if (Main.Instance.PlayerHandController.
+                PlayerHand.GetRaycastHit().transform?.GetComponent<PickableObject>() && Vector3.Distance(gameObject.transform.position,
+                Main.Instance.PlayerTransform.position)<distanceToPick)
+            {
+
+                ColorChangeLookAt();
+                return true;
+            }
+                ColorChangeDontLookAt();
+            return false;
+        }
 	}
 }
+
 
