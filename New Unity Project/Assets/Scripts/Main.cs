@@ -8,40 +8,49 @@ namespace Game
 		public InputController InputController { get; private set; }
 		public PlayerController PlayerController { get; private set; }
 		public BatteryController BatteryController { get; private set; }
+        public PlayerHandController PlayerHandController { get; private set; }
 		private List<BaseController> _controllers = new List<BaseController>();
-		private List<PickableController> _pickableControllers = new List<PickableController>(); 
+        [SerializeField]private Transform _handTransform;
+        public Transform PlayerTransform { get; private set; }
 
 		public static Main Instance { get; private set; }
 		
+        public enum MouseButton
+        {
+            LeftButton,
+            RightButton,
+            CenterButton
+        }
 
 		private void Awake()
 		{
 			Instance = this;
-			PlayerController=new PlayerController(new UnitMotor(
-				FindObjectOfType<CharacterController>().transform));
+            PlayerTransform = FindObjectOfType<CharacterController>().transform;
+
+            PlayerController = new PlayerController(new UnitMotor(PlayerTransform));
 			_controllers.Add(PlayerController);
 			FlashLightController = new FlashLightController();
 			InputController = new InputController();
 			InputController.On();
 			_controllers.Add(InputController);
-
 			FlashLightController = new FlashLightController();
 			_controllers.Add(FlashLightController);
 			BatteryController = new BatteryController();
-			_pickableControllers.Add(BatteryController);
-			
+			_controllers.Add(BatteryController);
+            PlayerHandController = new PlayerHandController();
+            _controllers.Add(PlayerHandController);
 		}
-
+        public void RemoveController(BaseController controller)
+        {
+            _controllers.Remove(controller);
+        }
 		private void Update()
 		{
-			foreach(var controller in _controllers)
+			for(var i=0;i<_controllers.Count;i++)
 			{
-				controller.OnUpdate();
+				_controllers[i]?.OnUpdate();
 			}
-			//foreach(var pickable in _pickableControllers)
-			//{
-			//	//pickable.OnUpdate();
-			//}
 		}
+
 	}
 }

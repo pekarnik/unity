@@ -4,10 +4,12 @@ namespace Game
 {
 	public class Battery:PickableObject
 	{
-		public override void Picked()
-		{
-			base.Picked();
-			Main.Instance.FlashLightController.Recharged();
-		}
-	}
+
+        public override void TakeObject()
+        {
+            base.TakeObject();
+            Main.Instance.FlashLightController.Recharged();
+            
+        }
+    }
 }

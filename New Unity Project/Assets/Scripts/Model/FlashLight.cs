@@ -30,6 +30,7 @@ namespace Game
 		{
 			if (!_light) return;
 			transform.position = _goFollow.position + _vecOffset;
+            
 			transform.rotation = Quaternion.Lerp(transform.rotation,
 				_goFollow.rotation, _speed * Time.deltaTime);
 		}
