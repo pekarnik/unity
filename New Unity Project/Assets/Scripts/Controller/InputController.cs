@@ -14,26 +14,10 @@ namespace Game
 			if(Input.GetKeyDown(_codeFlashLight))
 				Main.Instance.FlashLightController.Switch();
             if (Input.GetKeyDown(_use))
-            {
-                if(Main.Instance.BatteryController.Battery.LookAt())
-                Main.Instance.BatteryController.Taked();
+            {                
+                    Main.Instance.BatteryController.Taked();
             }
-            if(Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                _indexWeapons = 0;
-                _isSelectWeapons = false;
-            }
-            if(Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                _indexWeapons = 1;
-                _isSelectWeapons = false;
-            }
-            if (_isSelectWeapons) return;
-            if(Main.Instance.ObjectManager.GetWeaponsList[_indexWeapons])
-            {
-                Main.Instance.WeaponsController.On(Main.Instance.ObjectManager.GetAmmunitionList[_indexWeapons]);
-            }
-            _isSelectWeapons = true;
+            
 
 		}
 	}
