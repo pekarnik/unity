@@ -66,15 +66,10 @@
     <Compile Include="Assets\Scripts\Controller\InputController.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerHandController.cs" />
-    <Compile Include="Assets\Scripts\Helpers\ObjectManager.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Timer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IMotor.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
-    <Compile Include="Assets\Scripts\Model\Ammunition.cs" />
     <Compile Include="Assets\Scripts\Model\BaseObjectScene.cs" />
     <Compile Include="Assets\Scripts\Model\Battery.cs" />
-    <Compile Include="Assets\Scripts\Model\Box.cs" />
-    <Compile Include="Assets\Scripts\Model\Bullet.cs" />
     <Compile Include="Assets\Scripts\Model\FlashLight.cs" />
     <Compile Include="Assets\Scripts\Model\PickableObject.cs" />
     <Compile Include="Assets\Scripts\Model\PlayerHand.cs" />
