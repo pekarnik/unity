@@ -10,7 +10,6 @@ namespace Game
 		public PlayerController PlayerController { get; private set; }
 		public BatteryController BatteryController { get; private set; }
         public PlayerHandController PlayerHandController { get; private set; }
-        public WeaponsController WeaponsController { get; private set; }
         public ObjectManager ObjectManager { get; private set; }
 		private List<BaseController> _controllers = new List<BaseController>();
         [SerializeField]private Transform _handTransform;
@@ -42,8 +41,6 @@ namespace Game
 			_controllers.Add(BatteryController);
             PlayerHandController = new PlayerHandController();
             _controllers.Add(PlayerHandController);
-            WeaponsController = new WeaponsController();
-            _controllers.Add(WeaponsController);
             ObjectManager = GetComponent<ObjectManager>();
 		}
         public void RemoveController(BaseController controller)
