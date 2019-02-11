@@ -7,9 +7,9 @@ namespace Game
 
         public override void TakeObject()
         {
-            base.TakeObject();
-            Main.Instance.FlashLightController.Recharged();
             
+            Main.Instance.FlashLightController.Recharged();
+            base.TakeObject();
         }
     }
 }

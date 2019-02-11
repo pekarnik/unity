@@ -7,25 +7,26 @@ namespace Game
 		public FlashLightController FlashLightController { get; private set; }
 		public InputController InputController { get; private set; }
 		public PlayerController PlayerController { get; private set; }
-		public BatteryController BatteryController { get; private set; }
+        public WeaponController WeaponController { get; private set; }
+        public BatteryController BatteryController { get; private set; }
         public PlayerHandController PlayerHandController { get; private set; }
+        public ObjectManager ObjectManager { get; private set; }
 		private List<BaseController> _controllers = new List<BaseController>();
         [SerializeField]private Transform _handTransform;
         public Transform PlayerTransform { get; private set; }
 
 		public static Main Instance { get; private set; }
 		
-        public enum MouseButton
-        {
-            LeftButton,
-            RightButton,
-            CenterButton
-        }
+       
 
 		private void Awake()
 		{
 			Instance = this;
             PlayerTransform = FindObjectOfType<CharacterController>().transform;
+
+
+            ObjectManager = new ObjectManager();
+            ObjectManager.Start();
 
             PlayerController = new PlayerController(new UnitMotor(PlayerTransform));
 			_controllers.Add(PlayerController);
@@ -39,7 +40,10 @@ namespace Game
 			_controllers.Add(BatteryController);
             PlayerHandController = new PlayerHandController();
             _controllers.Add(PlayerHandController);
-		}
+            WeaponController = new WeaponController();
+            _controllers.Add(WeaponController);
+
+        }
         public void RemoveController(BaseController controller)
         {
             _controllers.Remove(controller);

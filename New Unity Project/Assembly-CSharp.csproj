@@ -66,15 +66,31 @@
     <Compile Include="Assets\Scripts\Controller\InputController.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controller\PlayerHandController.cs" />
+    <Compile Include="Assets\Scripts\Controller\WeaponController.cs" />
+    <Compile Include="Assets\Scripts\Enum\AmmunitionType.cs" />
+    <Compile Include="Assets\Scripts\Enum\MouseButton.cs" />
+    <Compile Include="Assets\Scripts\Helper\InfoCollision.cs" />
+    <Compile Include="Assets\Scripts\Helper\ObjectManager.cs" />
+    <Compile Include="Assets\Scripts\Helper\Timer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IMotor.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ISetDamage.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
+    <Compile Include="Assets\Scripts\Model\Aim.cs" />
+    <Compile Include="Assets\Scripts\Model\Ammunition.cs" />
     <Compile Include="Assets\Scripts\Model\BaseObjectScene.cs" />
     <Compile Include="Assets\Scripts\Model\Battery.cs" />
+    <Compile Include="Assets\Scripts\Model\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Model\Clip.cs" />
     <Compile Include="Assets\Scripts\Model\FlashLight.cs" />
+    <Compile Include="Assets\Scripts\Model\Gun.cs" />
     <Compile Include="Assets\Scripts\Model\PickableObject.cs" />
     <Compile Include="Assets\Scripts\Model\PlayerHand.cs" />
     <Compile Include="Assets\Scripts\Model\UnitMotor.cs" />
+    <Compile Include="Assets\Scripts\Model\Weapons.cs" />
+    <Compile Include="Assets\Scripts\View\AimUIText.cs" />
     <Compile Include="Assets\Scripts\View\FlashLightUIText.cs" />
+    <Compile Include="Assets\Scripts\View\UIInterface.cs" />
+    <Compile Include="Assets\Scripts\View\WeaponUIText.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Unity Learning/unity/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
