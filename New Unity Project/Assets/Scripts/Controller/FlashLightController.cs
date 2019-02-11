@@ -23,8 +23,8 @@ namespace Game
 		{
 			if (IsActive) return;
 			base.On();
-			_flashlight.Switch(true);
             _flashlight = Main.Instance.ObjectManager.FlashLight;
+            _flashlight.Switch(true);
             UIInterface.LightUIText.SetActive(true);
 		}
 		public sealed override void Off()
