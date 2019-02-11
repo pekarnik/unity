@@ -1,22 +1,19 @@
-﻿using UnityEngine;
-namespace Game
+﻿namespace Game
 {
-    class Gun : Weapons
+    public sealed class Gun:Weapon
     {
-        public override void Fire(Ammunition ammunition)
+        public override void Fire()
         {
-            if (_fire) 
-                if(ammunition)
-                {
-                    Bullet tempbulet = Instantiate(ammunition, _gun.position, _gun.rotation) as Bullet;
-                    if(tempbulet)
-                    {
-                        tempbulet.GetComponent<Rigidbody>().AddForce(_gun.forward * _force);
-                        tempbulet.name = "Bullet";
-                        _fire = false;
-                        _recharge.Start(_rechargeTime);
-                    }
-                }
+            if (!_isReady) return;
+            if (Clip.CountAmmunition <= 0) return;
+            if(Ammunition)
+            {
+                var tempAmmunition = Instantiate(Ammunition, _barrel.position, _barrel.rotation);//Pool Object
+                tempAmmunition.AddForce(_barrel.forward * _force);
+                Clip.CountAmmunition--;
+                _isReady = false;
+                Invoke(nameof(ReadyShoot), _rechargeTime);
+            }
         }
     }
 }

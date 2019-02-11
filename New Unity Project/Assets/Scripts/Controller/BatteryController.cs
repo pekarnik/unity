@@ -16,8 +16,11 @@ namespace Game
         }
         public void Taked()
         {
-            Main.Instance.BatteryController.Battery.TakeObject();
-            Main.Instance.RemoveController(this);
+            if (Main.Instance.BatteryController.Battery.LookAt())
+            {
+                Main.Instance.BatteryController.Battery.TakeObject();
+                Main.Instance.RemoveController(this);
+            }
         }
     }
 }

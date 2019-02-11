@@ -5,13 +5,6 @@ namespace Game
 	class FlashLightController:BaseController
 	{
 		private FlashLight _flashlight;
-		private FlashLightUIText _flashLightUIText;
-		public FlashLightController()
-		{
-			_flashlight = MonoBehaviour.FindObjectOfType<FlashLight>();
-			_flashLightUIText = MonoBehaviour.FindObjectOfType<FlashLightUIText>();
-			Off();
-		}
 		public override void OnUpdate()
 		{
 			if (!IsActive) return;
@@ -19,7 +12,7 @@ namespace Game
 			_flashlight.Rotation();
 			if (_flashlight.EditBatteryCharge())
 			{
-				_flashLightUIText.Text = _flashlight.BatteryChargeCurrent;
+				UIInterface.LightUIText.Text = _flashlight.BatteryChargeCurrent;
 			}
 			else
 			{
@@ -31,15 +24,15 @@ namespace Game
 			if (IsActive) return;
 			base.On();
 			_flashlight.Switch(true);
-
-			_flashLightUIText.SetActive(true);
+            _flashlight = Main.Instance.ObjectManager.FlashLight;
+            UIInterface.LightUIText.SetActive(true);
 		}
 		public sealed override void Off()
 		{
 			if (!IsActive) return;
 			base.Off();
 			_flashlight.Switch(false);
-			_flashLightUIText.SetActive(false);
+            UIInterface.LightUIText.SetActive(false);
 		}
 		public void Recharged()
 		{

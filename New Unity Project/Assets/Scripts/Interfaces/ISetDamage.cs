@@ -1,8 +1,7 @@
-﻿
-namespace Game
+﻿namespace Game
 {
     public interface ISetDamage
     {
-        void ApplyDamage(float currentDamage);
+        void SetDamage(InfoCollision info);
     }
 }
