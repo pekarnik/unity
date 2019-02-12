@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Tests;
 namespace Game
 {
 	class Main:MonoBehaviour
@@ -10,13 +11,15 @@ namespace Game
         public WeaponController WeaponController { get; private set; }
         public BatteryController BatteryController { get; private set; }
         public PlayerHandController PlayerHandController { get; private set; }
+        public BotController BotController { get; private set; }
         public ObjectManager ObjectManager { get; private set; }
 		private List<BaseController> _controllers = new List<BaseController>();
         [SerializeField]private Transform _handTransform;
         public Transform PlayerTransform { get; private set; }
 
 		public static Main Instance { get; private set; }
-		
+        public Bot RefBotPrefab;
+        public int CountBot;
        
 
 		private void Awake()
@@ -43,6 +46,11 @@ namespace Game
             WeaponController = new WeaponController();
             _controllers.Add(WeaponController);
 
+            BotController = new BotController { CountBot = CountBot };
+
+            _controllers.Add(BotController);
+            BotController.On();
+            BotController.Init();
         }
         public void RemoveController(BaseController controller)
         {
