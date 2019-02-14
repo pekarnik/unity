@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: d782132e96f6c124e95d8711def2f367, type: 2}
 --- !u!1 &143083695
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   m_TagString: PickableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &143083696
 BoxCollider:
@@ -922,9 +922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e8a4bf3cf99c44f84e38fdb2bc7399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _handTransform: {fileID: 0}
-  RefBotPrefab: {fileID: 0}
-  CountBot: 0
+  _handTransform: {fileID: 399801964}
+  RefBotPrefab: {fileID: 689736203, guid: ee1831c0a6996fe41b5135919c85177f, type: 3}
+  CountBot: 2
 --- !u!1 &1077102085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,7 +1082,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &1812983828
 MeshCollider:
@@ -1187,7 +1187,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &1926117815
 BoxCollider:

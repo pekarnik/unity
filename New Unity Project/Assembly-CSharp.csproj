@@ -95,7 +95,15 @@
     <Compile Include="Assets\Scripts\Model\PlayerHand.cs" />
     <Compile Include="Assets\Scripts\Model\UnitMotor.cs" />
     <Compile Include="Assets\Scripts\Model\Weapons.cs" />
+    <Compile Include="Assets\Scripts\Test\BodyBot.cs" />
+    <Compile Include="Assets\Scripts\Test\Bot.cs" />
+    <Compile Include="Assets\Scripts\Test\BotController.cs" />
+    <Compile Include="Assets\Scripts\Test\DestoroyPoint.cs" />
+    <Compile Include="Assets\Scripts\Test\HeadBot.cs" />
+    <Compile Include="Assets\Scripts\Test\MovingPoints.cs" />
+    <Compile Include="Assets\Scripts\Test\Patrol.cs" />
     <Compile Include="Assets\Scripts\Test\TestNavMesh.cs" />
+    <Compile Include="Assets\Scripts\Test\Vision.cs" />
     <Compile Include="Assets\Scripts\View\AimUIText.cs" />
     <Compile Include="Assets\Scripts\View\FlashLightUIText.cs" />
     <Compile Include="Assets\Scripts\View\UIInterface.cs" />
