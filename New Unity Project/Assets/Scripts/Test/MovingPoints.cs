@@ -47,14 +47,10 @@ namespace Tests
                 }
                 else
                 {
-                    _lineRenderer.positionCount = _path.corners.Length;
-                    //var cornersArrayCount = _points.ToArray().Length + _path.corners.Length;
-                    //var cornersArray = new Vector3[cornersArrayCount];
-                    //for(int i=0;i<cornersArray.Length;i++)
-                    //{
-                    //совместить точки на сцене и точки до курсора
-                    //}
-                    _lineRenderer.SetPositions(_path.corners);
+                    var cornersArray = _points.ToArray().Concat(_path.corners);
+
+                    _lineRenderer.positionCount= cornersArray.Length;
+                    _lineRenderer.SetPositions(cornersArray);
                 }
             }
 

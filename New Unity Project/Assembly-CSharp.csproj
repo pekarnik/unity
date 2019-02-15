@@ -102,6 +102,9 @@
     <Compile Include="Assets\Scripts\Test\HeadBot.cs" />
     <Compile Include="Assets\Scripts\Test\MovingPoints.cs" />
     <Compile Include="Assets\Scripts\Test\Patrol.cs" />
+    <Compile Include="Assets\Scripts\Test\StateBot.cs" />
+    <Compile Include="Assets\Scripts\Test\TestAttribute.cs" />
+    <Compile Include="Assets\Scripts\Test\TestBehaviour.cs" />
     <Compile Include="Assets\Scripts\Test\TestNavMesh.cs" />
     <Compile Include="Assets\Scripts\Test\Vision.cs" />
     <Compile Include="Assets\Scripts\View\AimUIText.cs" />
