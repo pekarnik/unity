@@ -12,9 +12,8 @@ namespace Tests
         public NavMeshAgent Agent { get; private set; }
 
         private float _waitTime = 3;
-        private bool _isDeath;
-        private bool _isDetected;
-        private bool _isReady = true;
+        private StateBot _stateBot;
+        private Vector3 _point;
 
         protected override void Awake()
         {
@@ -28,26 +27,33 @@ namespace Tests
         }
         public void Tick()
         {
-            if (_isDeath) return;
-            if(!_isDetected)
+            if (_stateBot == StateBot.Died) return;
+            if (_stateBot != StateBot.Detected)
             {
-                if(!Agent.hasPath)
+                if (!Agent.hasPath)
                 {
-                    if(_isReady)
+                    if (_stateBot != StateBot.Inspection)
                     {
-                        _isReady = false;
-                        Agent.SetDestination(Patrol.GenericPoint(transform));
-                        Agent.stoppingDistance = 0;                        
+                        if(_stateBot!=StateBot.Patrol)
+                        {
+                            _stateBot = StateBot.Patrol;
+                            _point = Patrol.GenericPoint(transform);
+                            Agent.SetDestination(_point);
+                            Agent.stoppingDistance = 0;
+                        }
+                        else
+                        {
+                            if(Vector3.Distance(_point,transform.position)<=1)
+                            {
+                                _stateBot = StateBot.Inspection;
+                                Invoke(nameof(ReadyPatrol), _waitTime);
+                            }
+                        }
                     }
-                    
                 }
-                if(Agent.remainingDistance<=Agent.stoppingDistance)//осмотреть местность
+                if(Vision.VisionM(transform,Target))
                 {
-                    Invoke(nameof(ReadyPatrol), _waitTime);
-                }
-                if (Vision.VisionM(transform,Target))
-                {
-                    _isDetected = true;
+                    _stateBot = StateBot.Detected;
                 }
             }
             else
@@ -59,8 +65,7 @@ namespace Tests
                     //остановиться
                     Weapon.Fire();
                 }
-
-                // Потеря персонажа
+                //Потеря персонажа
             }
         }
         public void SetDamage(InfoCollision info)
@@ -72,7 +77,7 @@ namespace Tests
 
             if(Hp<=0)
             {
-                _isDeath = true;
+                _stateBot = StateBot.Died;
                 Agent.enabled = false;
                 foreach(var child in GetComponentsInChildren<Transform>())
                 {
@@ -89,7 +94,7 @@ namespace Tests
         }
         private void ReadyPatrol()
         {
-            _isReady = true;
+            _stateBot = StateBot.Non;
         }
         public void MovePoint(Vector3 point)
         {
